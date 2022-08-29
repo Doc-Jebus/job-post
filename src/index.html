@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../dist/output.css">
+  <script src="../src/app.js" defer></script>
   <title>Job Post</title>
 </head>
 <body class="h-screen">
@@ -15,9 +16,303 @@
         Job Post
       </h1>
       <div class="flex flex-row p-5">
-        <button class="m-4  h-14 w-28 bg-blue-400 text-white font-bold border-2 border-gray-400 rounded-2xl shadow-2xl shadow-slate-600 hover:shadow-2xl hover:bg-blue-700 hover:border-gray-600 hover:shadow-black">new post</button>
+        <button class="m-4  h-14 w-28 bg-blue-500 text-white font-bold border-2 border-gray-400 rounded-2xl shadow-2xl shadow-slate-600 hover:shadow-2xl hover:bg-blue-700 hover:border-gray-200 hover:shadow-black" id="job-post-button">new post</button>
       </div>
     </header>
+
+    <section>
+      <div class="
+      flex
+      justify-center
+      bg-white
+      p-4
+      md:m-20
+      " 
+      id="form-details">
+        <form class="p-5 border-4 border-gray-400 rounded-md shadow-2xl shadow-slate-600" action="#" method="post">
+
+          <!-- Company Name -->
+          <div class="flex flex-col p-2 md:my-3 font-saira">
+            
+            <div class="flex flex-row" id="check">
+              <div class="relative mx-6 my-4">
+                <input class="
+                peer
+                w-96
+                py-1.5
+                text-gray-800 
+                text-2xl
+                border-b-2 
+                border-gray-500 
+                placeholder-transparent
+                after:border-b-4 
+                focus:border-sky-600 
+                focus:transition-colors 
+                focus:outline-none 
+                " 
+                placeholder="COMPANY NAME" type="text" id="company-name" name="company-name">
+
+                <label class="
+                absolute 
+                left-0 
+                -top-8 
+                pointer-events-none 
+                font-saira 
+                text-2xl
+                text-gray-600 
+                cursor-text 
+                peer-focus:text-xl 
+                peer-focus:-top-7 
+                peer-focus:text-sky-600 
+                peer-focus:font-bold 
+                peer-focus:ease-in 
+                peer-placeholder-shown:top-3
+                duration-200
+                " 
+                className="input-label" for="companyName">
+                    COMPANY NAME:
+                </label>
+              </div>
+              <!-- Confirmation Check -->
+              <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="first-name-confirm"></p>
+            </div>
+
+            <!-- Job Title -->
+            <div class="flex flex-row" id="check">
+              <div class="relative mx-6 my-4">
+                <input class="
+                peer
+                w-96
+                py-1.5
+                text-gray-800 
+                text-2xl
+                border-b-2 
+                border-gray-500 
+                placeholder-transparent
+                after:border-b-4 
+                focus:border-sky-600 
+                focus:transition-colors 
+                focus:outline-none 
+                " 
+                type="text" className="inputField" id="job-title" name="job-title" placeholder="JOB TITLE">
+                <label class="
+                absolute 
+                left-0 
+                -top-8 
+                pointer-events-none 
+                font-saira 
+                text-2xl
+                text-gray-600 
+                cursor-text 
+                peer-focus:text-xl 
+                peer-focus:-top-5 
+                peer-focus:text-sky-600 
+                peer-focus:font-bold 
+                peer-focus:ease-in 
+                peer-placeholder-shown:top-3
+                duration-200
+                " 
+                className="input-label" for="jobTitle">
+                  JOB TITLE:
+                </label>
+              </div>
+              <!-- Confirmation Check -->
+              <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="last-name-confirm"></p>
+            </div>
+          </div>
+
+          <!-- Email & Username -->
+          <div class="flex flex-col p-2">
+            <div class="flex flex-row" id="check">
+	            <div class="relative mx-6 my-4 font-saira text-2xl" id="info-items">
+                <input class="
+                peer
+                w-96
+                py-1.5
+                text-gray-800 
+                text-2xl
+                border-b-2 
+                border-gray-500 
+                placeholder-transparent
+                after:border-b-4 
+                focus:border-sky-700 
+                focus:transition-colors 
+                focus:outline-none 
+                " 
+                type="text" id="location" name="location" placeholder="LOCATION">
+
+
+                <label class="
+                absolute 
+                left-0 
+                -top-8 
+                pointer-events-none 
+                font-saira 
+                text-2xl
+                text-gray-600 
+                cursor-text 
+                peer-focus:text-xl 
+                peer-focus:-top-5 
+                peer-focus:text-sky-800 
+                peer-focus:font-bold 
+                peer-focus:ease-in 
+                peer-placeholder-shown:top-3
+                duration-200
+                " 
+                className="input-label" for="email">
+                  LOCATION:
+                </label>
+                <p class="text-red-600" id="email-error"></p>
+	            </div>
+              <!-- Confirmation Check -->
+              <p class="mt-8 text-green-500 text-2xl font-bold" id="confirmation"></p>
+            </div>
+
+            <div class="flex flex-row">
+	            <div class="relative mx-6 my-4 font-saira text-2xl" id="salary">
+
+                <input class="
+                peer
+                w-96
+                py-1.5
+                text-gray-800 
+                text-2xl
+                border-b-2 
+                border-gray-500 
+                placeholder-transparent
+                after:border-b-4 
+                focus:border-sky-700 
+                focus:transition-colors 
+                focus:outline-none 
+                " 
+                type="text" className="inputField" id="user-name"  name="salary" placeholder="SALARY">
+
+                <label class="
+                absolute 
+                left-0 
+                -top-8 
+                pointer-events-none 
+                font-saira 
+                text-2xl
+                text-gray-600 
+                cursor-text 
+                peer-focus:text-xl 
+                peer-focus:-top-7 
+                peer-focus:text-sky-800 
+                peer-focus:font-bold 
+                peer-focus:ease-in 
+                peer-placeholder-shown:top-3
+                duration-200
+                " 
+                className="input-label" for="salary">
+                  SALARY:
+                </label>
+                <p class="text-red-600" id="user-name-error"></p>
+	            </div>
+              <!-- Confirmation Check -->
+              <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="username-confirm"></p>
+            </div>
+            
+          </div>
+
+          <!-- Password & Confirm Password-->
+          <div class="flex flex-col md:flex-row md:my-3">
+	          <div class="relative mx-6 my-4 font-saira text-2xl" id="info-items">
+              
+              <input class="
+              peer
+              w-96
+              py-1.5
+              text-gray-800 
+              text-2xl
+              border-b-2 
+              border-gray-500 
+              placeholder-transparent
+              after:border-b-4 
+              focus:border-sky-700 
+              focus:transition-colors 
+              focus:outline-none 
+              " 
+              type="password" className="inputField" id="password-input" name="password" placeholder="PASSWORD">
+
+              <label class="
+              absolute 
+              left-0 
+              -top-8 
+              pointer-events-none 
+              font-saira 
+              text-2xl
+              text-gray-600 
+              cursor-text 
+              peer-focus:text-xl 
+              peer-focus:-top-5
+              peer-focus:text-sky-800 
+              peer-focus:font-bold 
+              peer-focus:ease-in 
+              peer-placeholder-shown:top-3
+              duration-200
+              " 
+              className="input-label" for="password">
+                PASSWORD:
+              </label>
+	          </div>
+
+
+	          <div class="
+              relative 
+              mx-6 
+              my-4 
+              font-saira 
+              text-2xl
+              " 
+              id="info-items">
+
+              <input class="
+              peer
+              w-96
+              py-1.5
+              text-gray-800 
+              text-2xl
+              border-b-2 
+              border-gray-500 
+              placeholder-transparent
+              after:border-b-4 
+              focus:border-sky-700 
+              focus:transition-colors 
+              focus:outline-none 
+              " 
+              type="password" className="inputField" id="confirm-password-input" name="password-confirm" placeholder="CONFIRM PASSWORD">
+
+              <label class="
+              absolute 
+              left-0 
+              -top-8 
+              pointer-events-none 
+              font-saira 
+              text-2xl
+              text-gray-600 
+              cursor-text 
+              peer-focus:text-xl 
+              peer-focus:-top-5 
+              peer-focus:text-sky-800 
+              peer-focus:font-bold 
+              peer-focus:ease-in 
+              peer-placeholder-shown:top-3
+              duration-200
+              " 
+              className="input-label" for="password-confirm">
+                CONFIRM PASSWORD:
+              </label>
+
+	          </div>
+          </div>
+
+          <!-- Option -->
+	        <div class="flex m-6">
+	        	<button class="m-4  h-14 w-28 bg-blue-500 text-white font-bold border-2 border-gray-400 rounded-2xl shadow-2xl shadow-slate-600 hover:shadow-2xl hover:bg-blue-700 hover:border-gray-200 hover:shadow-black" id="job-post-button" type="submit">submit</button>
+	        </div>
+
+    </section>
 
 
 </main>
