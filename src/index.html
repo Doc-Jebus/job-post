@@ -11,7 +11,18 @@
 <body class="h-screen">
   
 <main>
-    <header class="flex flex-row justify-between align-middle h-32 w-screen bg-gray-200" id="navbar-job-post" name="job-post">
+    <header class="
+      flex 
+      flex-row 
+      justify-between 
+      align-middle 
+      h-32 
+      w-screen 
+      bg-gray-200 
+      shadow-xl 
+      shadow-slate-400
+      " 
+      id="navbar-job-post" name="job-post">
       <h1 class="p-8 text-5xl text-blue-500 font-bold">
         Job Post
       </h1>
@@ -20,21 +31,21 @@
       </div>
     </header>
 
+    <!-- Form elements -->
     <section>
       <div class="
-      flex
-      justify-center
-      bg-white
-      p-4
-      md:m-20
-      " 
-      id="form-details">
-        <form class="p-5 border-4 border-gray-400 rounded-md shadow-2xl shadow-slate-600" action="#" method="post">
+        flex
+        justify-center
+        bg-white
+        md:m-20
+        " 
+        id="form-details">
+        <form class="p-7 border-4 border-gray-400 rounded-md shadow-2xl shadow-slate-600" action="#" method="post">
 
           <!-- Company Name -->
-          <div class="flex flex-col p-2 md:my-3 font-saira">
+          <div class="flex flex-col md:my-3 font-saira">
             
-            <div class="flex flex-row" id="check">
+            <div class="flex flex-row py-5" id="check">
               <div class="relative mx-6 my-4">
                 <input class="
                 peer
@@ -78,7 +89,7 @@
             </div>
 
             <!-- Job Title -->
-            <div class="flex flex-row" id="check">
+            <div class="flex flex-row py-5" id="check">
               <div class="relative mx-6 my-4">
                 <input class="
                 peer
@@ -121,9 +132,9 @@
             </div>
           </div>
 
-          <!-- Email & Username -->
-          <div class="flex flex-col p-2">
-            <div class="flex flex-row" id="check">
+          <!-- Location & Salary -->
+          <div class="flex flex-col">
+            <div class="flex flex-row py-5" id="check">
 	            <div class="relative mx-6 my-4 font-saira text-2xl" id="info-items">
                 <input class="
                 peer
@@ -135,7 +146,7 @@
                 border-gray-500 
                 placeholder-transparent
                 after:border-b-4 
-                focus:border-sky-700 
+                focus:border-sky-600 
                 focus:transition-colors 
                 focus:outline-none 
                 " 
@@ -153,7 +164,7 @@
                 cursor-text 
                 peer-focus:text-xl 
                 peer-focus:-top-5 
-                peer-focus:text-sky-800 
+                peer-focus:text-sky-600 
                 peer-focus:font-bold 
                 peer-focus:ease-in 
                 peer-placeholder-shown:top-3
@@ -168,7 +179,7 @@
               <p class="mt-8 text-green-500 text-2xl font-bold" id="confirmation"></p>
             </div>
 
-            <div class="flex flex-row">
+            <div class="flex flex-row py-5">
 	            <div class="relative mx-6 my-4 font-saira text-2xl" id="salary">
 
                 <input class="
@@ -198,7 +209,7 @@
                 cursor-text 
                 peer-focus:text-xl 
                 peer-focus:-top-7 
-                peer-focus:text-sky-800 
+                peer-focus:text-sky-600 
                 peer-focus:font-bold 
                 peer-focus:ease-in 
                 peer-placeholder-shown:top-3
@@ -215,30 +226,14 @@
             
           </div>
 
-          <!-- Password & Confirm Password-->
+          <!-- Application Period -->
           <div class="flex flex-col md:flex-row md:my-3">
-	          <div class="relative mx-6 my-4 font-saira text-2xl" id="info-items">
+	          <div class="relative mx-6 my-4 py-8 font-saira text-2xl" id="info-items">
               
-              <input class="
-              peer
-              w-96
-              py-1.5
-              text-gray-800 
-              text-2xl
-              border-b-2 
-              border-gray-500 
-              placeholder-transparent
-              after:border-b-4 
-              focus:border-sky-700 
-              focus:transition-colors 
-              focus:outline-none 
-              " 
-              type="password" className="inputField" id="password-input" name="password" placeholder="PASSWORD">
-
               <label class="
               absolute 
               left-0 
-              -top-8 
+              -top-3 
               pointer-events-none 
               font-saira 
               text-2xl
@@ -252,22 +247,106 @@
               peer-placeholder-shown:top-3
               duration-200
               " 
-              className="input-label" for="password">
-                PASSWORD:
+              className="input-label" for="application-from">
+                APPLICATION FROM:
               </label>
+
+              <input class="
+              peer
+              w-96
+              py-1.5
+              text-blue-700 
+              text-2xl
+              border-b-2 
+              border-gray-500 
+              placeholder-transparent
+              after:border-b-4 
+              focus:border-sky-700 
+              focus:transition-colors 
+              focus:outline-none 
+              " 
+              type="date" className="inputField" id="application-period" name="application-period" placeholder="APPLICATION FROM">
+
 	          </div>
 
+
+	          <div class="relative mx-6 my-4 py-8 font-saira text-2xl" id="info-items">
+
+              <label class="
+              absolute 
+              left-0 
+              -top-3 
+              pointer-events-none 
+              font-saira 
+              text-2xl
+              text-gray-600 
+              cursor-text 
+              peer-focus:text-xl 
+              peer-focus:-top-5
+              peer-focus:text-sky-800 
+              peer-focus:font-bold 
+              peer-focus:ease-in 
+              peer-placeholder-shown:top-3
+              duration-200
+              "  
+              className="input-label" for="application-until">
+                APPLICATION UNTIL:
+              </label>
+
+              <input class="
+              peer
+              w-96
+              py-1.5
+              text-blue-700 
+              text-2xl
+              border-b-2 
+              border-gray-500 
+              placeholder-transparent
+              after:border-b-4 
+              focus:border-sky-700 
+              focus:transition-colors 
+              focus:outline-none 
+              " 
+              type="date" className="inputField" id="application-until" name="application-until" placeholder="APPLICATION UNTIL">
+
+	          </div>
+          </div>
+
+          <!-- Job Description -->
+          <div class="flex flex-col md:flex-col md:my-3">
+	          <div class="relative mx-6 my-4 pt-7 font-saira text-2xl" id="info-items">
+
+              <label class="
+              absolute 
+              left-0 
+              -top-3 
+              pointer-events-none 
+              font-saira 
+              text-2xl
+              text-gray-600 
+              cursor-text 
+              peer-focus:text-xl 
+              peer-focus:-top-5
+              peer-focus:text-sky-800 
+              peer-focus:font-bold 
+              peer-focus:ease-in 
+              peer-placeholder-shown:top-3
+              duration-200
+              " 
+              className="input-label" for="application-from">
+                JOB DESCRIPTION:
+              </label>
+	          </div>
 
 	          <div class="
               relative 
               mx-6 
-              my-4 
-              font-saira 
-              text-2xl
+              my-4  
+              text-lg
               " 
               id="info-items">
 
-              <input class="
+              <textarea class="
               peer
               w-96
               py-1.5
@@ -281,38 +360,35 @@
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="password" className="inputField" id="confirm-password-input" name="password-confirm" placeholder="CONFIRM PASSWORD">
-
-              <label class="
-              absolute 
-              left-0 
-              -top-8 
-              pointer-events-none 
-              font-saira 
-              text-2xl
-              text-gray-600 
-              cursor-text 
-              peer-focus:text-xl 
-              peer-focus:-top-5 
-              peer-focus:text-sky-800 
-              peer-focus:font-bold 
-              peer-focus:ease-in 
-              peer-placeholder-shown:top-3
-              duration-200
-              " 
-              className="input-label" for="password-confirm">
-                CONFIRM PASSWORD:
-              </label>
+              type="date" className="inputField" id="job-description" name="job-description" placeholder="Write about the job details in here..."></textarea>
 
 	          </div>
           </div>
 
-          <!-- Option -->
+          <!-- Submit Button -->
 	        <div class="flex m-6">
-	        	<button class="m-4  h-14 w-28 bg-blue-500 text-white font-bold border-2 border-gray-400 rounded-2xl shadow-2xl shadow-slate-600 hover:shadow-2xl hover:bg-blue-700 hover:border-gray-200 hover:shadow-black" id="job-post-button" type="submit">submit</button>
+	        	<button class="
+              m-4 h-14 
+              w-28 
+              bg-blue-500 
+              text-white 
+              font-bold 
+              border-2 
+              border-gray-400 
+              rounded-2xl 
+              shadow-2xl 
+              shadow-slate-600 
+              hover:shadow-2xl 
+              hover:bg-blue-700 
+              hover:border-gray-200 
+              hover:shadow-black
+              " 
+              id="job-post-button" type="submit">submit</button>
 	        </div>
 
     </section>
+
+    <div id="overlay"></div>
 
 
 </main>
