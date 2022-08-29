@@ -8,9 +8,9 @@
   <script src="../src/app.js" defer></script>
   <title>Job Post</title>
 </head>
-<body class="h-screen">
+<body>
   
-<main>
+  <main>
     <header class="
       flex 
       flex-row 
@@ -27,326 +27,204 @@
         Job Post
       </h1>
       <div class="flex flex-row p-5">
-        <button class="m-4  h-14 w-28 bg-blue-500 text-white font-bold border-2 border-gray-400 rounded-2xl shadow-2xl shadow-slate-600 hover:shadow-2xl hover:bg-blue-700 hover:border-gray-200 hover:shadow-black" id="job-post-button">new post</button>
+        <button class="
+          m-4 
+          h-14 
+          w-28 
+          bg-blue-500 
+          text-white 
+          font-bold 
+          border-2 
+          border-gray-400 
+          rounded-2xl 
+          shadow-2xl 
+          shadow-slate-600 
+          hover:shadow-2xl 
+          hover:bg-blue-700 
+          hover:border-gray-200 
+          hover:shadow-black
+          " 
+          id="job-post-button">new post</button>
       </div>
     </header>
 
     <!-- Form elements -->
-    <section>
-      <div class="
-        flex
-        justify-center
-        bg-white
-        md:m-20
-        " 
-        id="form-details">
-        <form class="p-7 border-4 border-gray-400 rounded-md shadow-2xl shadow-slate-600" action="#" method="post">
+    
+    <div class="
+      fixed
+      top-1/2 
+      left-1/2 
+      -translate-x-1/2
+      -translate-y-1/2
+      bg-white
+      border-8 
+      border-sky-700 
+      rounded-2xl
+      z-10
+      " 
+      id="form-details">
+      <form class="p-7 rounded-xl border-none shadow-2xl shadow-sky-900" action="#" method="post">
+      <!-- Company Name -->
+      <div class="flex flex-col md:my-3 font-saira">
 
-          <!-- Company Name -->
-          <div class="flex flex-col md:my-3 font-saira">
-            
-            <div class="flex flex-row py-5" id="check">
-              <div class="relative mx-6 my-4">
-                <input class="
-                peer
-                w-96
-                py-1.5
-                text-gray-800 
-                text-2xl
-                border-b-2 
-                border-gray-500 
-                placeholder-transparent
-                after:border-b-4 
-                focus:border-sky-600 
-                focus:transition-colors 
-                focus:outline-none 
-                " 
-                placeholder="COMPANY NAME" type="text" id="company-name" name="company-name">
-
-                <label class="
-                absolute 
-                left-0 
-                -top-8 
-                pointer-events-none 
-                font-saira 
-                text-2xl
-                text-gray-600 
-                cursor-text 
-                peer-focus:text-xl 
-                peer-focus:-top-7 
-                peer-focus:text-sky-600 
-                peer-focus:font-bold 
-                peer-focus:ease-in 
-                peer-placeholder-shown:top-3
-                duration-200
-                " 
-                className="input-label" for="companyName">
-                    COMPANY NAME:
-                </label>
-              </div>
-              <!-- Confirmation Check -->
-              <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="first-name-confirm"></p>
-            </div>
-
-            <!-- Job Title -->
-            <div class="flex flex-row py-5" id="check">
-              <div class="relative mx-6 my-4">
-                <input class="
-                peer
-                w-96
-                py-1.5
-                text-gray-800 
-                text-2xl
-                border-b-2 
-                border-gray-500 
-                placeholder-transparent
-                after:border-b-4 
-                focus:border-sky-600 
-                focus:transition-colors 
-                focus:outline-none 
-                " 
-                type="text" className="inputField" id="job-title" name="job-title" placeholder="JOB TITLE">
-                <label class="
-                absolute 
-                left-0 
-                -top-8 
-                pointer-events-none 
-                font-saira 
-                text-2xl
-                text-gray-600 
-                cursor-text 
-                peer-focus:text-xl 
-                peer-focus:-top-5 
-                peer-focus:text-sky-600 
-                peer-focus:font-bold 
-                peer-focus:ease-in 
-                peer-placeholder-shown:top-3
-                duration-200
-                " 
-                className="input-label" for="jobTitle">
-                  JOB TITLE:
-                </label>
-              </div>
-              <!-- Confirmation Check -->
-              <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="last-name-confirm"></p>
-            </div>
+        <div class="relative">
+          <button class="
+            absolute 
+            top-0 
+            right-4 
+            text-3xl
+            text-gray-500 
+            font-bold 
+            ease-in-out 
+            duration-200 
+            hover:right-2 
+            hover:-top-2
+            hover:text-5xl
+            hover:text-red-700
+            "
+            >&times;</button>
+        </div>
+        
+        <div class="
+          flex 
+          flex-row 
+          py-5
+          " 
+          id="check">
+          <div class="
+            relative 
+            mx-6 
+            my-4
+            ">
+            <input class="
+            peer
+            w-96
+            py-1.5
+            text-gray-800 
+            text-2xl
+            border-b-2 
+            border-gray-500 
+            placeholder-transparent
+            after:border-b-4 
+            focus:border-sky-600 
+            focus:transition-colors 
+            focus:outline-none 
+            " 
+            placeholder="COMPANY NAME" type="text" id="company-name" name="company-name">
+            <label class="
+            absolute 
+            left-0 
+            -top-8 
+            pointer-events-none 
+            font-saira 
+            text-2xl
+            text-gray-600 
+            cursor-text 
+            peer-focus:text-xl 
+            peer-focus:-top-7 
+            peer-focus:text-sky-600 
+            peer-focus:font-bold 
+            peer-focus:ease-in 
+            peer-placeholder-shown:top-3
+            duration-200
+            " 
+            className="input-label" for="companyName">
+                COMPANY NAME:
+            </label>
           </div>
-
-          <!-- Location & Salary -->
-          <div class="flex flex-col">
-            <div class="flex flex-row py-5" id="check">
-	            <div class="relative mx-6 my-4 font-saira text-2xl" id="info-items">
-                <input class="
-                peer
-                w-96
-                py-1.5
-                text-gray-800 
-                text-2xl
-                border-b-2 
-                border-gray-500 
-                placeholder-transparent
-                after:border-b-4 
-                focus:border-sky-600 
-                focus:transition-colors 
-                focus:outline-none 
-                " 
-                type="text" id="location" name="location" placeholder="LOCATION">
-
-
-                <label class="
-                absolute 
-                left-0 
-                -top-8 
-                pointer-events-none 
-                font-saira 
-                text-2xl
-                text-gray-600 
-                cursor-text 
-                peer-focus:text-xl 
-                peer-focus:-top-5 
-                peer-focus:text-sky-600 
-                peer-focus:font-bold 
-                peer-focus:ease-in 
-                peer-placeholder-shown:top-3
-                duration-200
-                " 
-                className="input-label" for="email">
-                  LOCATION:
-                </label>
-                <p class="text-red-600" id="email-error"></p>
-	            </div>
-              <!-- Confirmation Check -->
-              <p class="mt-8 text-green-500 text-2xl font-bold" id="confirmation"></p>
-            </div>
-
-            <div class="flex flex-row py-5">
-	            <div class="relative mx-6 my-4 font-saira text-2xl" id="salary">
-
-                <input class="
-                peer
-                w-96
-                py-1.5
-                text-gray-800 
-                text-2xl
-                border-b-2 
-                border-gray-500 
-                placeholder-transparent
-                after:border-b-4 
-                focus:border-sky-700 
-                focus:transition-colors 
-                focus:outline-none 
-                " 
-                type="text" className="inputField" id="user-name"  name="salary" placeholder="SALARY">
-
-                <label class="
-                absolute 
-                left-0 
-                -top-8 
-                pointer-events-none 
-                font-saira 
-                text-2xl
-                text-gray-600 
-                cursor-text 
-                peer-focus:text-xl 
-                peer-focus:-top-7 
-                peer-focus:text-sky-600 
-                peer-focus:font-bold 
-                peer-focus:ease-in 
-                peer-placeholder-shown:top-3
-                duration-200
-                " 
-                className="input-label" for="salary">
-                  SALARY:
-                </label>
-                <p class="text-red-600" id="user-name-error"></p>
-	            </div>
-              <!-- Confirmation Check -->
-              <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="username-confirm"></p>
-            </div>
-            
+            <!-- Confirmation Check -->
+            <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="first-name-confirm"></p>
           </div>
-
-          <!-- Application Period -->
-          <div class="flex flex-col md:flex-row md:my-3">
-	          <div class="relative mx-6 my-4 py-8 font-saira text-2xl" id="info-items">
-              
-              <label class="
-              absolute 
-              left-0 
-              -top-3 
-              pointer-events-none 
-              font-saira 
-              text-2xl
-              text-gray-600 
-              cursor-text 
-              peer-focus:text-xl 
-              peer-focus:-top-5
-              peer-focus:text-sky-800 
-              peer-focus:font-bold 
-              peer-focus:ease-in 
-              peer-placeholder-shown:top-3
-              duration-200
-              " 
-              className="input-label" for="application-from">
-                APPLICATION FROM:
-              </label>
-
+          <!-- Job Title -->
+          <div class="flex flex-row py-5" id="check">
+            <div class="relative mx-6 my-4">
               <input class="
               peer
               w-96
               py-1.5
-              text-blue-700 
+              text-gray-800 
               text-2xl
               border-b-2 
               border-gray-500 
               placeholder-transparent
               after:border-b-4 
-              focus:border-sky-700 
+              focus:border-sky-600 
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="date" className="inputField" id="application-period" name="application-period" placeholder="APPLICATION FROM">
-
-	          </div>
-
-
-	          <div class="relative mx-6 my-4 py-8 font-saira text-2xl" id="info-items">
-
+              type="text" className="inputField" id="job-title" name="job-title" placeholder="JOB TITLE">
               <label class="
               absolute 
               left-0 
-              -top-3 
+              -top-8 
               pointer-events-none 
               font-saira 
               text-2xl
               text-gray-600 
               cursor-text 
               peer-focus:text-xl 
-              peer-focus:-top-5
-              peer-focus:text-sky-800 
+              peer-focus:-top-5 
+              peer-focus:text-sky-600 
               peer-focus:font-bold 
               peer-focus:ease-in 
               peer-placeholder-shown:top-3
               duration-200
-              "  
-              className="input-label" for="application-until">
-                APPLICATION UNTIL:
+              " 
+              className="input-label" for="jobTitle">
+                JOB TITLE:
               </label>
-
+            </div>
+            <!-- Confirmation Check -->
+            <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="last-name-confirm"></p>
+          </div>
+        </div>
+        <!-- Location & Salary -->
+        <div class="flex flex-col">
+          <div class="flex flex-row py-5" id="check">
+	          <div class="relative mx-6 my-4 font-saira text-2xl" id="info-items">
               <input class="
               peer
               w-96
               py-1.5
-              text-blue-700 
+              text-gray-800 
               text-2xl
               border-b-2 
               border-gray-500 
               placeholder-transparent
               after:border-b-4 
-              focus:border-sky-700 
+              focus:border-sky-600 
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="date" className="inputField" id="application-until" name="application-until" placeholder="APPLICATION UNTIL">
-
-	          </div>
-          </div>
-
-          <!-- Job Description -->
-          <div class="flex flex-col md:flex-col md:my-3">
-	          <div class="relative mx-6 my-4 pt-7 font-saira text-2xl" id="info-items">
-
+              type="text" id="location" name="location" placeholder="LOCATION">
               <label class="
               absolute 
               left-0 
-              -top-3 
+              -top-8 
               pointer-events-none 
               font-saira 
               text-2xl
               text-gray-600 
               cursor-text 
               peer-focus:text-xl 
-              peer-focus:-top-5
-              peer-focus:text-sky-800 
+              peer-focus:-top-5 
+              peer-focus:text-sky-600 
               peer-focus:font-bold 
               peer-focus:ease-in 
               peer-placeholder-shown:top-3
               duration-200
               " 
-              className="input-label" for="application-from">
-                JOB DESCRIPTION:
+              className="input-label" for="email">
+                LOCATION:
               </label>
+              <p class="text-red-600" id="email-error"></p>
 	          </div>
-
-	          <div class="
-              relative 
-              mx-6 
-              my-4  
-              text-lg
-              " 
-              id="info-items">
-
-              <textarea class="
+            <!-- Confirmation Check -->
+            <p class="mt-8 text-green-500 text-2xl font-bold" id="confirmation"></p>
+          </div>
+          <div class="flex flex-row py-5">
+	          <div class="relative mx-6 my-4 font-saira text-2xl" id="salary">
+              <input class="
               peer
               w-96
               py-1.5
@@ -360,10 +238,160 @@
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="date" className="inputField" id="job-description" name="job-description" placeholder="Write about the job details in here..."></textarea>
-
+              type="text" className="inputField" id="user-name"  name="salary" placeholder="SALARY">
+              <label class="
+              absolute 
+              left-0 
+              -top-8 
+              pointer-events-none 
+              font-saira 
+              text-2xl
+              text-gray-600 
+              cursor-text 
+              peer-focus:text-xl 
+              peer-focus:-top-7 
+              peer-focus:text-sky-600 
+              peer-focus:font-bold 
+              peer-focus:ease-in 
+              peer-placeholder-shown:top-3
+              duration-200
+              " 
+              className="input-label" for="salary">
+                SALARY:
+              </label>
+              <p class="text-red-600" id="user-name-error"></p>
 	          </div>
+            <!-- Confirmation Check -->
+            <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="username-confirm"></p>
           </div>
+          
+        </div>
+        <!-- Application Period -->
+        <div class="flex flex-col md:flex-row md:my-3">
+	        <div class="relative mx-6 my-4 py-8 font-saira text-2xl" id="info-items">
+            
+            <label class="
+            absolute 
+            left-0 
+            -top-3 
+            pointer-events-none 
+            font-saira 
+            text-2xl
+            text-gray-600 
+            cursor-text 
+            peer-focus:text-xl 
+            peer-focus:-top-5
+            peer-focus:text-sky-800 
+            peer-focus:font-bold 
+            peer-focus:ease-in 
+            peer-placeholder-shown:top-3
+            duration-200
+            " 
+            className="input-label" for="application-from">
+              APPLICATION FROM:
+            </label>
+            <input class="
+            peer
+            w-96
+            py-1.5
+            text-blue-700 
+            text-2xl
+            border-b-2 
+            border-gray-500 
+            placeholder-transparent
+            after:border-b-4 
+            focus:border-sky-700 
+            focus:transition-colors 
+            focus:outline-none 
+            " 
+            type="date" className="inputField" id="application-period" name="application-period" placeholder="APPLICATION FROM">
+	        </div>
+	        <div class="relative mx-6 my-4 py-8 font-saira text-2xl" id="info-items">
+            <label class="
+            absolute 
+            left-0 
+            -top-3 
+            pointer-events-none 
+            font-saira 
+            text-2xl
+            text-gray-600 
+            cursor-text 
+            peer-focus:text-xl 
+            peer-focus:-top-5
+            peer-focus:text-sky-800 
+            peer-focus:font-bold 
+            peer-focus:ease-in 
+            peer-placeholder-shown:top-3
+            duration-200
+            "  
+            className="input-label" for="application-until">
+              APPLICATION UNTIL:
+            </label>
+            <input class="
+            peer
+            w-96
+            py-1.5
+            text-blue-700 
+            text-2xl
+            border-b-2 
+            border-gray-500 
+            placeholder-transparent
+            after:border-b-4 
+            focus:border-sky-700 
+            focus:transition-colors 
+            focus:outline-none 
+            " 
+            type="date" className="inputField" id="application-until" name="application-until" placeholder="APPLICATION UNTIL">
+	        </div>
+        </div>
+        <!-- Job Description -->
+        <div class="flex flex-col md:flex-col md:my-3">
+	        <div class="relative mx-6 my-4 pt-7 font-saira text-2xl" id="info-items">
+            <label class="
+            absolute 
+            left-0 
+            -top-3 
+            pointer-events-none 
+            font-saira 
+            text-2xl
+            text-gray-600 
+            cursor-text 
+            peer-focus:text-xl 
+            peer-focus:-top-5
+            peer-focus:text-sky-800 
+            peer-focus:font-bold 
+            peer-focus:ease-in 
+            peer-placeholder-shown:top-3
+            duration-200
+            " 
+            className="input-label" for="application-from">
+              JOB DESCRIPTION:
+            </label>
+	        </div>
+	        <div class="
+            relative 
+            mx-6 
+            my-4  
+            text-lg
+            " 
+            id="info-items">
+            <textarea class="
+            peer
+            w-96
+            py-1.5
+            text-gray-800 
+            text-2xl
+            border-b-2 
+            border-gray-500 
+            placeholder-transparent
+            after:border-b-4 
+            focus:border-sky-700 
+            focus:transition-colors 
+            focus:outline-none 
+            " 
+            type="date" className="inputField" id="job-description" name="job-description" placeholder="Write about the job details in here..."></textarea>
+	        </div>
+        </div>
 
           <!-- Submit Button -->
 	        <div class="flex m-6">
@@ -385,13 +413,24 @@
               " 
               id="job-post-button" type="submit">submit</button>
 	        </div>
+      </form>
+    </div>
+    
+    <div class="
+      fixed
+      opacity-0
+      top-0
+      left-0
+      right-0
+      bottom-0 
+      bg-gray-500 
+      pointer-events-none
+      " 
+      id="overlay">
+    </div>
 
-    </section>
 
-    <div id="overlay"></div>
-
-
-</main>
+  </main>
 
 </body>
 </html>
