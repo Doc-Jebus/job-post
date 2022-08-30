@@ -28,6 +28,7 @@ module.exports = {
         lightBrown: '#ECB390',
         lightGreen: '#A0D995',
         orange: '#DF7861',
+        lightBlack: 'rgba(0,0,0,0.5)',
         veryDarkBlue: 'hsl(233, 12%, 13%)',
         veryPaleRed: 'hsl(13, 100%, 96%)',
         veryLightBlue: '#DFF6FF',

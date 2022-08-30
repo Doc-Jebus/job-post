@@ -11,6 +11,8 @@
 <body>
   
   <main>
+
+    <!-- The Main Header -->
     <header class="
       flex 
       flex-row 
@@ -26,6 +28,8 @@
       <h1 class="p-8 text-5xl text-blue-500 font-bold">
         Job Post
       </h1>
+
+      <!-- New Post Button -->
       <div class="flex flex-row p-5">
         <button class="
           m-4 
@@ -44,29 +48,46 @@
           hover:border-gray-200 
           hover:shadow-black
           " 
-          id="job-post-button">new post</button>
+          type="button" data-bs-toggle="modal" data-bs-target="#modal-form" id="job-post-btn">new post</button>
       </div>
     </header>
 
     <!-- Form elements -->
-    
     <div class="
+      modal
+      fade
       fixed
       top-1/2 
       left-1/2 
+      hidden 
       -translate-x-1/2
       -translate-y-1/2
+      ease-in-out
+      duration-200
+      scale-0
       bg-white
-      border-8 
+      border-4 
       border-sky-700 
       rounded-2xl
       z-10
+      active:scale-100
       " 
-      id="form-details">
-      <form class="p-7 rounded-xl border-none shadow-2xl shadow-sky-900" action="#" method="post">
+      id="modal-form" tabindex="-1" aria-labelledby="modal-form-label" aria-hidden="true">
+      <form class="
+        modal-dialog 
+        modal-fullscreen 
+        p-7 
+        rounded-xl 
+        border-none 
+        shadow-2xl 
+        shadow-sky-900
+        " 
+        action="#" method="post">
+
       <!-- Company Name -->
       <div class="flex flex-col md:my-3 font-saira">
 
+        <!-- Close Button -->
         <div class="relative">
           <button class="
             absolute 
@@ -82,7 +103,7 @@
             hover:text-5xl
             hover:text-red-700
             "
-            >&times;</button>
+            id="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</button>
         </div>
         
         <div class="
@@ -423,8 +444,10 @@
       left-0
       right-0
       bottom-0 
-      bg-gray-500 
+      bg-lightBlack 
       pointer-events-none
+      active:opacity-100
+      active:pointer-events-auto
       " 
       id="overlay">
     </div>
