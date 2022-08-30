@@ -30,7 +30,7 @@
       </h1>
 
       <!-- New Post Button -->
-      <div class="flex flex-row p-5">
+      <div type="button" class="flex flex-row p-5">
         <button class="
           m-4 
           h-14 
@@ -47,8 +47,13 @@
           hover:bg-blue-700 
           hover:border-gray-200 
           hover:shadow-black
+          active:bg-blue-800 
+          active:shadow-lg 
+          transition 
+          duration-150 
+          ease-in-out
           " 
-          type="button" data-bs-toggle="modal" data-bs-target="#modal-form" id="job-post-btn">new post</button>
+          data-bs-toggle="modal" data-bs-target="#modal-form" id="job-post-btn">new post</button>
       </div>
     </header>
 
@@ -431,6 +436,11 @@
               hover:bg-blue-700 
               hover:border-gray-200 
               hover:shadow-black
+              active:bg-blue-800 
+              active:shadow-lg 
+              transition 
+              duration-150 
+              ease-in-out
               " 
               id="job-post-button" type="submit">submit</button>
 	        </div>
@@ -451,7 +461,6 @@
       " 
       id="overlay">
     </div>
-
 
   </main>
 
