@@ -62,22 +62,22 @@
       modal
       fade
       fixed
+      hidden
       top-1/2 
       left-1/2 
-      hidden 
       -translate-x-1/2
       -translate-y-1/2
+      overflow-y-auto
+      h-5/6
       ease-in-out
       duration-200
-      scale-0
       bg-white
       border-4 
       border-sky-700 
       rounded-2xl
       z-10
-      active:scale-100
       " 
-      id="modal-form" tabindex="-1" aria-labelledby="modal-form-label" aria-hidden="true">
+      id="modal-form" aria-labelledby="modal-form-label" aria-hidden="true">
       <form class="
         modal-dialog 
         modal-fullscreen 
@@ -87,7 +87,7 @@
         shadow-2xl 
         shadow-sky-900
         " 
-        action="#" method="post">
+        action="" method="post">
 
       <!-- Company Name -->
       <div class="flex flex-col md:my-3 font-saira">
@@ -103,12 +103,16 @@
             font-bold 
             ease-in-out 
             duration-200 
-            hover:right-2 
-            hover:-top-2
-            hover:text-5xl
+            hover:right-4 
+            hover:-top-1
+            hover:text-4xl
             hover:text-red-700
+            active:text-red-800
+            active:text-3xl
+            active:right-4
+            active:top-0
             "
-            id="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            id="modal-close-btn" data-bs-dismiss="modal" value="Close Window">&times;</button>
         </div>
         
         <div class="
@@ -136,7 +140,7 @@
             focus:transition-colors 
             focus:outline-none 
             " 
-            placeholder="COMPANY NAME" type="text" id="company-name" name="company-name">
+            placeholder="COMPANY NAME" type="text" id="company-name" name="company-name" required>
             <label class="
             absolute 
             left-0 
@@ -178,7 +182,7 @@
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="text" className="inputField" id="job-title" name="job-title" placeholder="JOB TITLE">
+              type="text" className="inputField" id="job-title" name="job-title" placeholder="JOB TITLE" required>
               <label class="
               absolute 
               left-0 
@@ -222,7 +226,7 @@
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="text" id="location" name="location" placeholder="LOCATION">
+              type="text" id="location" name="location" placeholder="LOCATION" required>
               <label class="
               absolute 
               left-0 
@@ -264,7 +268,7 @@
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="text" className="inputField" id="user-name"  name="salary" placeholder="SALARY">
+              type="text" className="inputField" id="user-name"  name="salary" placeholder="SALARY" required>
               <label class="
               absolute 
               left-0 
@@ -330,7 +334,7 @@
             focus:transition-colors 
             focus:outline-none 
             " 
-            type="date" className="inputField" id="application-period" name="application-period" placeholder="APPLICATION FROM">
+            type="date" className="inputField" id="application-period" name="application-period" placeholder="APPLICATION FROM" required>
 	        </div>
 	        <div class="relative mx-6 my-4 py-8 font-saira text-2xl" id="info-items">
             <label class="
@@ -367,7 +371,7 @@
             focus:transition-colors 
             focus:outline-none 
             " 
-            type="date" className="inputField" id="application-until" name="application-until" placeholder="APPLICATION UNTIL">
+            type="date" className="inputField" id="application-until" name="application-until" placeholder="APPLICATION UNTIL" required>
 	        </div>
         </div>
         <!-- Job Description -->
@@ -396,26 +400,25 @@
 	        </div>
 	        <div class="
             relative 
+            w-96
             mx-6 
             my-4  
             text-lg
             " 
             id="info-items">
-            <textarea class="
+            <textarea  rows="20" cols="72" class="
             peer
-            w-96
-            py-1.5
+            p-3
             text-gray-800 
             text-2xl
-            border-b-2 
+            border-2 
             border-gray-500 
-            placeholder-transparent
             after:border-b-4 
             focus:border-sky-700 
             focus:transition-colors 
             focus:outline-none 
             " 
-            type="date" className="inputField" id="job-description" name="job-description" placeholder="Write about the job details in here..."></textarea>
+            type="date" className="inputField" id="job-description" name="job-description" placeholder="Job details in here..." required></textarea>
 	        </div>
         </div>
 
@@ -449,7 +452,7 @@
     
     <div class="
       fixed
-      opacity-0
+      hidden
       top-0
       left-0
       right-0
