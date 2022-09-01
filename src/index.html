@@ -76,6 +76,8 @@
       border-sky-700 
       rounded-2xl
       z-10
+      lg:w-3/4
+      xl:w-7/12
       " 
       id="modal-form" aria-labelledby="modal-form-label" aria-hidden="true">
       <form class="
@@ -208,7 +210,7 @@
             <p class="mt-8 -left-6 text-green-500 text-2xl font-bold" id="last-name-confirm"></p>
           </div>
         </div>
-        <!-- Location & Salary -->
+        <!-- Location -->
         <div class="flex flex-col">
           <div class="flex flex-row py-5" id="check">
 	          <div class="relative mx-6 my-4 font-saira text-2xl" id="info-items">
@@ -226,7 +228,7 @@
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="text" id="location" name="location" placeholder="LOCATION" required>
+              type="text" id="job-location" name="job-location" placeholder="LOCATION" required>
               <label class="
               absolute 
               left-0 
@@ -252,6 +254,23 @@
             <!-- Confirmation Check -->
             <p class="mt-8 text-green-500 text-2xl font-bold" id="confirmation"></p>
           </div>
+
+          <!-- Check Box: online or on-site -->
+          <div class="flex flex-col mx-6 my-4 font-saira text-2xl">
+            <div class="my-5">
+            <label for="online-check" name="online-check">LOCATION STATUS: </label>
+            </div>
+            <div class="flex flex-row">
+            <label class="mx-2" for="online-onsite" name="online-onsite">Online </label>
+            <input class="mr-6" type="radio" id="online-check" name="online-onsite" checked/>
+            <label class="mx-2" for="online-onsite" name="online-site">On-site</label>
+            <input class="mr-6" type="radio" id="on-site-check" name="online-onsite"/>
+            <label class="mx-2" for="online-onsite" name="online-onsite">Hybrid: online & on-site</label>
+            <input type="radio" id="hybrid-check" name="online-onsite"/>
+            </div>
+          </div>
+
+          <!-- Salary -->
           <div class="flex flex-row py-5">
 	          <div class="relative mx-6 my-4 font-saira text-2xl" id="salary">
               <input class="
@@ -268,7 +287,7 @@
               focus:transition-colors 
               focus:outline-none 
               " 
-              type="text" className="inputField" id="user-name"  name="salary" placeholder="SALARY" required>
+              type="text" className="inputField" id="job-salary"  name="salary" placeholder="SALARY" required>
               <label class="
               absolute 
               left-0 
@@ -334,7 +353,7 @@
             focus:transition-colors 
             focus:outline-none 
             " 
-            type="date" className="inputField" id="application-period" name="application-period" placeholder="APPLICATION FROM" required>
+            type="date" className="inputField" id="application-period-start" name="application-period-start" placeholder="APPLICATION FROM" required>
 	        </div>
 	        <div class="relative mx-6 my-4 py-8 font-saira text-2xl" id="info-items">
             <label class="
@@ -371,7 +390,7 @@
             focus:transition-colors 
             focus:outline-none 
             " 
-            type="date" className="inputField" id="application-until" name="application-until" placeholder="APPLICATION UNTIL" required>
+            type="date" className="inputField" id="application-period-end" name="application-period-end" placeholder="APPLICATION UNTIL" required>
 	        </div>
         </div>
         <!-- Job Description -->
@@ -406,7 +425,7 @@
             text-lg
             " 
             id="info-items">
-            <textarea  rows="20" cols="72" class="
+            <textarea  rows="20" cols="65" class="
             peer
             p-3
             text-gray-800 
@@ -445,11 +464,12 @@
               duration-150 
               ease-in-out
               " 
-              id="job-post-button" type="submit">submit</button>
+              id="job-submit-btn" type="submit">submit</button>
 	        </div>
       </form>
     </div>
     
+    <!-- Overlay -->
     <div class="
       fixed
       hidden
