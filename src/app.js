@@ -17,17 +17,15 @@ const applicationStartDate = document.getElementById('application-period-start')
 const applicationEndDate = document.getElementById('application-period-end').value;
 const jobDescription = document.getElementById('job-description').value;
 
-
-let jobListings = [];
-
-let jobsPosted = JSON.parse(localStorage.getItem("job_list"));
+//Used to organize the constructor class into an array and store locally in the JSON file.
+let jobListingArray = [];
 
 class JobPost {
-  constructor(company, jobPosition, location, salary, applicationStartDate, applicationEndDate, jobDescription) {
+  constructor(company, jobPosition, location, jobStatus, salary, applicationStartDate, applicationEndDate, jobDescription) {
     this.company = company;
     this.jobPosition = jobPosition;
     this.location = location;
-    //this.jobStatus = jobStatus;
+    this.jobStatus = jobStatus;
     this.salary = salary;
     this.applicationStartDate = applicationStartDate;
     this.applicationEndDate = applicationEndDate;
@@ -36,28 +34,36 @@ class JobPost {
 }
 
 
-jobSubmitBtn.addEventListener('click', (e)=> {
+jobPostForm.addEventListener('submit', (e)=> {
   e.preventDefault();
-  let job = new JobPost(
+
+  let jobProfile = new JobPost(
     document.getElementById('company-name').value, 
     document.getElementById('job-title').value,
     document.getElementById('job-location').value, 
-    //document.querySelectorAll('input[name="online-onsite"]:checked').value,
+    document.querySelector('input[name="online-onsite"]:checked').value,
     document.getElementById('job-salary').value, 
     document.getElementById('application-period-start').value, 
     document.getElementById('application-period-end').value,
-    document.getElementById('job-description').value)
-  console.log(job);
+    document.getElementById('job-description').value
+  )
 
-  let currentJobEntries = JSON.parse(localStorage.getItem("jobListings"));
-
-  if(currentJobEntries == null) {
-    jobListings = [];
-  } else {
-    alert("Job already posted");
+  jobListingArray.push(jobProfile);
+  console.log(jobListingArray);
+  let jobPostSerialized = JSON.stringify(jobListingArray);
+  if (localStorage.getItem("job_list") == null) {
+    localStorage.setItem("job_list", jobPostSerialized);
   }
-  currentJobEntries.push(job);
-  localStorage.setItem("job_list", JSON.stringify(jobListings));
+
+  let jobsPostDeserialized = JSON.parse(localStorage.getItem("job_list"));
+  //jobsPostDeserialized.push(jobListingArray);
+  
+  
+  localStorage.setItem("job_list", jobPostSerialized);
+
+  jobPostForm.reset()
+  modalForm.classList.toggle('hidden');
+  overlay.classList.toggle('hidden');
 });
 
 //function addJobToList() {}
@@ -78,7 +84,7 @@ overlay.addEventListener('click', () => {
 //Button to close and reset the input fields of the form modal.
 closeModalBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  inputs.forEach(input => input.value = '');
+  jobPostForm.reset()
   modalForm.classList.toggle('hidden');
   overlay.classList.toggle('hidden');
 });
