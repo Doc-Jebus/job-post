@@ -89,7 +89,7 @@
         shadow-2xl 
         shadow-sky-900
         " 
-        action="" method="post">
+        action="#" method="post" id="job-post-form">
 
       <!-- Company Name -->
       <div class="flex flex-col md:my-3 font-saira">
@@ -262,11 +262,11 @@
             </div>
             <div class="flex flex-row">
             <label class="mx-2" for="online-onsite" name="online-onsite">Online </label>
-            <input class="mr-6" type="radio" id="online-check" name="online-onsite" checked/>
+            <input class="mr-6" type="radio" id="online-check" name="online-onsite" value="Work online" checked/>
             <label class="mx-2" for="online-onsite" name="online-site">On-site</label>
-            <input class="mr-6" type="radio" id="on-site-check" name="online-onsite"/>
+            <input class="mr-6" type="radio" id="on-site-check" name="online-onsite" value="Work on-site"/>
             <label class="mx-2" for="online-onsite" name="online-onsite">Hybrid: online & on-site</label>
-            <input type="radio" id="hybrid-check" name="online-onsite"/>
+            <input type="radio" id="hybrid-check" name="online-onsite" value="Hybrid work - online & on-site"/>
             </div>
           </div>
 
