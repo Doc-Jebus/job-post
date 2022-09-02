@@ -17,9 +17,7 @@ const applicationStartDate = document.getElementById('application-period-start')
 const applicationEndDate = document.getElementById('application-period-end').value;
 const jobDescription = document.getElementById('job-description').value;
 
-//Used to organize the constructor class into an array and store locally in the JSON file.
-let jobListingArray = [];
-
+//Job Class: Represents the job positions.
 class JobPost {
   constructor(company, jobPosition, location, jobStatus, salary, applicationStartDate, applicationEndDate, jobDescription) {
     this.company = company;
@@ -31,6 +29,30 @@ class JobPost {
     this.applicationEndDate = applicationEndDate;
     this.jobDescription = jobDescription;
   }
+}
+
+//UI Class to handle UI tasks
+class UI {
+  static displayPostedJobs() {
+    const StoredPosting = [
+      {
+        company: 'Google',
+        jobPosition: 'UI/UX Designer',
+        location: 'Sydney',
+        jobStatus: 'online',
+        salary: '$120,000',
+        applicationStartDate: '09/10/2022',
+        applicationEndDate: '10/10/2022',
+        jobDescription: 'This is a famous company.'
+      }
+    ];
+    const jobs = StoredPosting;
+
+    books.forEach((job)=> UI.addJobToList(job));
+  }
+
+  static addJobToList(job) { 
+    const list = document.querySelector('#job-table');
 }
 
 
@@ -48,25 +70,27 @@ jobPostForm.addEventListener('submit', (e)=> {
     document.getElementById('job-description').value
   )
 
-  jobListingArray.push(jobProfile);
-  console.log(jobListingArray);
-  let jobPostSerialized = JSON.stringify(jobListingArray);
-  if (localStorage.getItem("job_list") == null) {
-    localStorage.setItem("job_list", jobPostSerialized);
+  let jobListingArray = [];
+
+  
+  
+  let storeData = localStorage.setItem('job-listing', JSON.stringify(jobProfile));
+
+  let getData = JSON.parse(localStorage.getItem('lob-listing'));
+
+  if(getData === null) {
+    jobListingArray.push(jobProfile);
   }
 
-  let jobsPostDeserialized = JSON.parse(localStorage.getItem("job_list"));
-  //jobsPostDeserialized.push(jobListingArray);
-  
-  
-  localStorage.setItem("job_list", jobPostSerialized);
+
+ 
 
   jobPostForm.reset()
   modalForm.classList.toggle('hidden');
   overlay.classList.toggle('hidden');
 });
 
-//function addJobToList() {}
+
 
 //Button to open new job post.
 jobPostBtn.addEventListener('click', () => {
