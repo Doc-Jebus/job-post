@@ -25,20 +25,9 @@ class JobPost {
 
 //UI Class to handle UI tasks
 class UI {
+  //Retrieve local storage and display
   static displayPostedJobs() {
-    const StoredPosting = [
-      {
-        company: 'Google',
-        jobPosition: 'UI/UX Designer',
-        location: 'Sydney',
-        jobStatus: 'online',
-        salary: '$120,000',
-        applicationStartDate: '09/10/2022',
-        applicationEndDate: '10/10/2022',
-        jobDescription: 'This is a famous company.'
-      }
-    ];
-    const jobs = StoredPosting;
+    const jobs = Store.getJob();
 
     jobs.forEach((job)=> UI.addJobToList(job));
   }
@@ -95,11 +84,44 @@ class UI {
       el.parentElement.parentElement.parentElement.remove();
     }
   }
+}
 
-  static showAlert(message, className) {
-    const div = document.createElement('div');
+
+//Store Class: Handle storage
+class Store {
+
+  //Retrieve from local storage
+ static getJob() {
+    let jobs;
+    if(localStorage.getItem('jobs') === null) {
+      jobs = [];
+    } else {
+    jobs = JSON.parse(localStorage.getItem('jobs'));
+    }
+
+    return jobs;
   }
 
+  //Store in local storage
+  static addJob(job) {
+    const jobs = Store.getJob();
+
+    jobs.push(job);
+
+    localStorage.setItem('jobs', JSON.stringify(jobs));
+  }
+
+  //Remove from local storage
+  static removeJob(jobDescription) {
+    const jobs = Store.getJob()
+
+    jobs.forEach((job, index) => {
+      if(job.jobDescription === jobDescription) {
+        jobs.splice(index, 1);
+      }
+    });
+    localStorage.setItem("jobs", JSON.stringify(jobs))
+  }
 }
 
 
@@ -121,15 +143,14 @@ jobPostForm.addEventListener('submit', (e)=> {
   const applicationEndDate = document.getElementById('application-period-end').value;
   const jobDescription = document.getElementById('job-description').value;
 
-  //Validate form values
-  if(company === "" || jobPosition === "" || location === "" || jobPosition === "" || jobStatus === "" || salary === "" || applicationStartDate === "" || applicationEndDate === "") {
-    alert("Please fill in all fields in the form");
-  } else {
   //Instantiate the job object
     const job = new JobPost(company, jobPosition, location, jobStatus, salary, applicationStartDate, applicationEndDate, jobDescription); 
-  }
+  
   //Add job to UI 
   UI.addJobToList(job);
+
+  //Add job to Store
+  Store.addJob(job);
 
   //Close the form
   jobPostForm.reset()
@@ -138,10 +159,16 @@ jobPostForm.addEventListener('submit', (e)=> {
 });
 
 
-//Button: Remove job post from table
+//Event: Remove job post from table
 document.querySelector('#job-table-list').addEventListener('click', (e) => {
-  UI.deleteJob(e.target)
+  //Remove job post from UI.
+  UI.deleteJob(e.target);
+
+  //Remove job post from store
+  Store.removeJob(e.target.parentElement.parentElement.previousElementSibling.textContent);
 });
+
+
 
 //Button: Open new job form.
 jobPostBtn.addEventListener('click', () => {
@@ -150,7 +177,7 @@ jobPostBtn.addEventListener('click', () => {
 }) 
 
 
-//Button: Form close button (reset the input fields of the form modal).
+//Remove: Form close button (reset the input fields of the form modal).
 closeModalBtn.addEventListener('click', (e) => {
   e.preventDefault();
   jobPostForm.reset()
@@ -158,9 +185,3 @@ closeModalBtn.addEventListener('click', (e) => {
   overlay.classList.toggle('hidden');
 });
 
-//Press overlay background to close modal... Currently not supported.
-overlay.addEventListener('click', () => {
-  inputs.forEach(input => input.value = '');
-  modalForm.classList.add('hidden');
-  overlay.classList.remove('hidden');
-  })
