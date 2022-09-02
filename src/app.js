@@ -17,7 +17,7 @@ const applicationStartDate = document.getElementById('application-period-start')
 const applicationEndDate = document.getElementById('application-period-end').value;
 const jobDescription = document.getElementById('job-description').value;
 
-//Job Class: Represents the job positions.
+//Job Class: Represents the job position.
 class JobPost {
   constructor(company, jobPosition, location, jobStatus, salary, applicationStartDate, applicationEndDate, jobDescription) {
     this.company = company;
@@ -48,42 +48,79 @@ class UI {
     ];
     const jobs = StoredPosting;
 
-    books.forEach((job)=> UI.addJobToList(job));
+    jobs.forEach((job)=> UI.addJobToList(job));
   }
 
   static addJobToList(job) { 
-    const list = document.querySelector('#job-table');
+    const list = document.querySelector('#job-table-list');
+
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+    <td>${job.company}</td>
+    <td>${job.jobPosition}</td>
+    <td>${job.location}</td>
+    <td>${job.jobStatus}</td>
+    <td>${job.salary}</td>
+    <td>${job.applicationStartDate}</td>
+    <td>${job.applicationEndDate}</td>
+    <td>${job.jobDescription}</td>
+    <td>
+      <a href='#'>
+        <button type="button" 
+        class="
+        inline-block 
+        px-4 
+        py-2 
+        bg-red-600 
+        text-white 
+        font-bold 
+        text-md 
+        leading-tight 
+        uppercase 
+        rounded-md 
+        shadow-md 
+        hover:bg-red-700 
+        hover:shadow-lg 
+        focus:bg-red-700 
+        focus:shadow-lg 
+        focus:outline-none 
+        focus:ring-0 
+        active:bg-red-800 
+        active:shadow-lg 
+        transition 
+        duration-150 
+        ease-in-out
+        ">
+        x</button></a></td>
+    `;
+
+    list.appendChild(row);
+  }
 }
 
+//Event: Display Jobs
+document.addEventListener('DOMContentLoaded', UI.displayPostedJobs);
 
+//Event: Add new job to the list
 jobPostForm.addEventListener('submit', (e)=> {
   e.preventDefault();
 
-  let jobProfile = new JobPost(
-    document.getElementById('company-name').value, 
-    document.getElementById('job-title').value,
-    document.getElementById('job-location').value, 
-    document.querySelector('input[name="online-onsite"]:checked').value,
-    document.getElementById('job-salary').value, 
-    document.getElementById('application-period-start').value, 
-    document.getElementById('application-period-end').value,
-    document.getElementById('job-description').value
-  )
-
-  let jobListingArray = [];
-
+    //Get form values
+    const company = document.getElementById('company-name').value; 
+    const jobPosition = document.getElementById('job-title').value;
+    const location = document.getElementById('job-location').value; 
+    const jobStatus = document.querySelector('input[name="online-onsite"]:checked').value;
+    const salary = document.getElementById('job-salary').value; 
+    const applicationStartDate = document.getElementById('application-period-start').value; 
+    const applicationEndDate = document.getElementById('application-period-end').value;
+    const jobDescription = document.getElementById('job-description').value;
   
-  
-  let storeData = localStorage.setItem('job-listing', JSON.stringify(jobProfile));
+    //Instantiate the job object
+    const job = new JobPost(company, jobPosition, location, jobStatus, salary, applicationStartDate, applicationEndDate, jobDescription);
 
-  let getData = JSON.parse(localStorage.getItem('lob-listing'));
+    console.log(job);
 
-  if(getData === null) {
-    jobListingArray.push(jobProfile);
-  }
-
-
- 
 
   jobPostForm.reset()
   modalForm.classList.toggle('hidden');
