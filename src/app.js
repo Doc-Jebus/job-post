@@ -1,21 +1,12 @@
-//Button control
+//Form input values - global variables
 const jobPostBtn = document.getElementById('job-post-btn');
 const closeModalBtn = document.getElementById('modal-close-btn');
 const modalForm = document.getElementById('modal-form');
 const jobSubmitBtn = document.getElementById('job-submit-btn');
 const overlay = document.getElementById('overlay');
 const inputs = document.querySelectorAll('input');
-
-//Form input values
 const jobPostForm = document.getElementById('job-post-form');
-const companyName = document.getElementById('company-name').value;
-const jobTitle = document.getElementById('job-title').value;
-const jobSalary = document.getElementById('job-salary').value;
-const jobLocation = document.getElementById('job-location').value;
-const onlineStatus = document.querySelector('input[name="online-onsite"]:checked').value;
-const applicationStartDate = document.getElementById('application-period-start').value;
-const applicationEndDate = document.getElementById('application-period-end').value;
-const jobDescription = document.getElementById('job-description').value;
+
 
 //Job Class: Represents the job position.
 class JobPost {
@@ -30,6 +21,7 @@ class JobPost {
     this.jobDescription = jobDescription;
   }
 }
+
 
 //UI Class to handle UI tasks
 class UI {
@@ -51,11 +43,10 @@ class UI {
     jobs.forEach((job)=> UI.addJobToList(job));
   }
 
+  //Dynamic table contents
   static addJobToList(job) { 
     const list = document.querySelector('#job-table-list');
-
     const row = document.createElement('tr');
-
     row.innerHTML = `
     <td>${job.company}</td>
     <td>${job.jobPosition}</td>
@@ -69,6 +60,7 @@ class UI {
       <a href='#'>
         <button type="button" 
         class="
+        delete
         inline-block 
         px-4 
         py-2 
@@ -97,52 +89,68 @@ class UI {
 
     list.appendChild(row);
   }
+  //Button: Function to delete job post
+  static deleteJob(el) {
+    if(el.classList.contains('delete')) {
+      el.parentElement.parentElement.parentElement.remove();
+    }
+  }
+
+  static showAlert(message, className) {
+    const div = document.createElement('div');
+  }
+
 }
+
 
 //Event: Display Jobs
 document.addEventListener('DOMContentLoaded', UI.displayPostedJobs);
+
 
 //Event: Add new job to the list
 jobPostForm.addEventListener('submit', (e)=> {
   e.preventDefault();
 
-    //Get form values
-    const company = document.getElementById('company-name').value; 
-    const jobPosition = document.getElementById('job-title').value;
-    const location = document.getElementById('job-location').value; 
-    const jobStatus = document.querySelector('input[name="online-onsite"]:checked').value;
-    const salary = document.getElementById('job-salary').value; 
-    const applicationStartDate = document.getElementById('application-period-start').value; 
-    const applicationEndDate = document.getElementById('application-period-end').value;
-    const jobDescription = document.getElementById('job-description').value;
-  
-    //Instantiate the job object
-    const job = new JobPost(company, jobPosition, location, jobStatus, salary, applicationStartDate, applicationEndDate, jobDescription);
+  //Get form values
+  const company = document.getElementById('company-name').value; 
+  const jobPosition = document.getElementById('job-title').value;
+  const location = document.getElementById('job-location').value; 
+  const jobStatus = document.querySelector('input[name="online-onsite"]:checked').value;
+  const salary = document.getElementById('job-salary').value; 
+  const applicationStartDate = document.getElementById('application-period-start').value; 
+  const applicationEndDate = document.getElementById('application-period-end').value;
+  const jobDescription = document.getElementById('job-description').value;
 
-    console.log(job);
+  //Validate form values
+  if(company === "" || jobPosition === "" || location === "" || jobPosition === "" || jobStatus === "" || salary === "" || applicationStartDate === "" || applicationEndDate === "") {
+    alert("Please fill in all fields in the form");
+  } else {
+  //Instantiate the job object
+    const job = new JobPost(company, jobPosition, location, jobStatus, salary, applicationStartDate, applicationEndDate, jobDescription); 
+  }
+  //Add job to UI 
+  UI.addJobToList(job);
 
-
+  //Close the form
   jobPostForm.reset()
   modalForm.classList.toggle('hidden');
   overlay.classList.toggle('hidden');
 });
 
 
+//Button: Remove job post from table
+document.querySelector('#job-table-list').addEventListener('click', (e) => {
+  UI.deleteJob(e.target)
+});
 
-//Button to open new job post.
+//Button: Open new job form.
 jobPostBtn.addEventListener('click', () => {
   modalForm.classList.remove('hidden');
   overlay.classList.remove('hidden');
 }) 
 
-//Press overlay background to close modal... Currently not supported.
-overlay.addEventListener('click', () => {
-  inputs.forEach(input => input.value = '');
-  modalForm.classList.add('hidden');
-  overlay.classList.remove('hidden');
-  })
 
-//Button to close and reset the input fields of the form modal.
+//Button: Form close button (reset the input fields of the form modal).
 closeModalBtn.addEventListener('click', (e) => {
   e.preventDefault();
   jobPostForm.reset()
@@ -150,3 +158,9 @@ closeModalBtn.addEventListener('click', (e) => {
   overlay.classList.toggle('hidden');
 });
 
+//Press overlay background to close modal... Currently not supported.
+overlay.addEventListener('click', () => {
+  inputs.forEach(input => input.value = '');
+  modalForm.classList.add('hidden');
+  overlay.classList.remove('hidden');
+  })
